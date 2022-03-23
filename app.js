@@ -10,7 +10,6 @@ const app = new Application();
 const CONFIG = {
     port: Number(config().port)
 };
-logger.log(typeof CONFIG);
 
 const start = R.invoker(1, 'start')(CONFIG);
 const startServer = R.compose(
