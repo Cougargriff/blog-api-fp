@@ -10,7 +10,7 @@ import db from './lib/db.js';
 await db.sync();
 
 const app = new Application();
-const PORT = config().port || Deno.env.get('port') || 3000;
+const PORT = config().PORT || Deno.env.get('PORT') || 3000;
 const CONFIG = {
     port: Number(PORT)
 };
