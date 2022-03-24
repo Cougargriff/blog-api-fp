@@ -8,4 +8,6 @@ const db_config = {
     port: CONFIG.db_port || Deno.env.db_post
 };
 
+console.log(db_config);
+
 export default db_config;
