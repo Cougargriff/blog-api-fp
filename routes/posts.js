@@ -1,23 +1,26 @@
 import * as R from "https://deno.land/x/ramda@v0.27.2/mod.ts";
+import Post from '../models/posts.js';
 
-const getPost = (req) => {
-    return "Hello, Abc!";
+
+const getPost = async ({ params: { id = null }, ...req }) => {
+    return await Post.where('id', id).all();
 };
 
-const getPosts = (req) => {
-    return "Hello, Abc!";
+const getPosts = async (req) => {
+    return await Post.all();
 };
 
-const deletePost = (req) => {
-    return "Hello, Abc!";
+const deletePost = async (req) => {
+    return await Post.where('id', id).delete();
 };
 
-const editPost = (req) => {
-    return "Hello, Abc!";
+const editPost = async (req) => {
+    return "In Progress";
 };
 
-const createPost = (req) => {
-    return "Hello, Abc!";
+const createPost = async ({ body, ...req}) => {
+    const {title = '', content = ''} = await body;
+    return await Post.create({title, content});
 };
 
 const posts = {

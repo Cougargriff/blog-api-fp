@@ -5,6 +5,9 @@ import * as R from "https://deno.land/x/ramda@v0.27.2/mod.ts";
 import logger from './lib/logger.js';
 import initRouter from './routes/routes.js';
 import useMiddleware from './routes/middleware.js';
+import db from './lib/db.js';
+
+await db.sync();
 
 const app = new Application();
 const CONFIG = {
