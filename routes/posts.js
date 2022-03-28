@@ -3,7 +3,11 @@ import Post from '../models/posts.js';
 
 
 const getPost = async ({ params: { id = null }, ...req }) => {
-    return await Post.where('id', id).all();
+    const post = await Post.where('id', id).all();
+    if (!post.length) {
+        return req.json('No post found for id ' + id, 404); 
+    }
+    return post;
 };
 
 const getPosts = async (req) => {

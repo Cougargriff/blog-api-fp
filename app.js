@@ -10,8 +10,9 @@ import db from './lib/db.js';
 await db.sync();
 
 const app = new Application();
+const PORT = config().PORT || Deno.env.get('PORT') || 3000;
 const CONFIG = {
-    port: Number(config().port)
+    port: Number(PORT)
 };
 
 const start = R.invoker(1, 'start')(CONFIG);
