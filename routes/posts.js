@@ -7,7 +7,7 @@ const getPost = async ({ params: { id = null }, ...req }) => {
     if (!post.length) {
         return req.json('No post found for id ' + id, 404); 
     }
-    return post;
+    return post[0];
 };
 
 const getPosts = async (req) => {
